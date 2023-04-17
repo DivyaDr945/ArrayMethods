@@ -136,3 +136,26 @@ console.log(monthsplice);
 const arrayunShift = [1, 2, 3];
 console.log(arrayunShift.unshift(4, 5)); // Expected output: 5
 console.log(arrayunShift); // Expected output: Array [4, 5, 1, 2, 3]
+
+/*The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.*/
+const arr1 = [0, 1, 2, [3, 4]];
+console.log(arr1.flat()); // Expected output: Array [0, 1, 2, 3, 4]
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+console.log(arr2.flat(2));
+// Expected output: Array [0, 1, 2, Array [3, 4]]
+
+/*The flatMap() method returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level. It is identical to a map() followed by a flat() of depth 1 (arr.map(...args).flat()), but slightly more efficient than calling those two methods separately.*/
+const arrFlatmap = [1, 2, 1];
+const resultarrFlatmap = arrFlatmap.flatMap((num) => (num === 2 ? [2, 2] : 1));
+console.log(resultarrFlatmap);
+// Expected output: Array [1, 2, 2, 1]
+
+/*The forEach() method executes a provided function once for each array element.*/
+const arrayforEach = ['a', 'b', 'c'];
+arrayforEach.forEach((element) => console.log(element));
+
+/*The Array.isArray() static method determines whether the passed value is an Array.*/
+console.log(Array.isArray([1, 3, 5])); // Expected output: true
+console.log(Array.isArray('[]')); // Expected output: false
+console.log(Array.isArray(new Array(5))); // Expected output: true
+console.log(Array.isArray(new Int16Array([15, 33]))); // Expected output: false
