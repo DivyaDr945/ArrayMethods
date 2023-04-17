@@ -74,7 +74,7 @@ const sumWithInitial = arrayReduce.reduce(
   (accumulator, currentValue) => accumulator + currentValue,
   initialValue
 );
-console.log(sumWithInitial);
+console.log('arrayReduce: ' + sumWithInitial);
 /*The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.  
 reduce for left to right */
 const arrayRight = [
