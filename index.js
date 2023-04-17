@@ -2,7 +2,31 @@
 const isBelowThreshold = (currentValue) => currentValue < 40;
 const array1 = [1, 30, 39, 29, 10, 13];
 console.log(array1.every(isBelowThreshold));
+/*The at() method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.*/
+const arrayAt = [5, 12, 8, 130, 44];
+let index = 2;
+console.log('Array at : ' + arrayAt.at(index));
+index = -2;
+console.log('Array at in negative : ' + arrayAt.at(index));
+//**The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array. */
+const arrayConcat1 = ['a', 'b', 'c'];
+const arrayConcate2 = ['d', 'e', 'f'];
+const arrayConcat3 = arrayConcat1.concat(arrayConcate2);
+console.log('Array concat : ' + arrayConcat3);
 
+/*
+The copyWithin() method shallow copies part of an array to another location in the same array and returns it without modifying its length.
+*/
+const arraycopywithIn = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+console.log('Copy with in: ' + arraycopywithIn.copyWithin(2, 5));
+/*The entries() method returns a new array iterator object that contains the key/value pairs for each index in the array.*/
+const arrayentries = ['a', 'b', 'c'];
+console.log('Array entries : ' + arrayentries.entries());
+console.log('Array entries : ' + arrayentries.entries().next().value);
+const arrayEntriesfor = arrayentries.entries();
+for (const elements of arrayEntriesfor) {
+  console.log(elements);
+}
 /*
 The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function. */
 
@@ -16,6 +40,15 @@ const words = [
 ];
 const result = words.filter((word) => word.length > 6);
 console.log(result);
+/*The fill() method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array.*/
+const arrayfill = [1, 2, 3, 4];
+// Fill with 0 from position 2 until position 4
+console.log(arrayfill.fill(0, 2, 4)); // Expected output: Array [1, 2, 0, 0]
+
+// Fill with 5 from position 1
+console.log(arrayfill.fill(5, 1)); // Expected output: Array [1, 5, 5, 5]
+
+console.log(arrayfill.fill(6)); // Expected output: Array [6, 6, 6, 6]
 
 /*
 The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
@@ -39,6 +72,7 @@ console.log(arrayLastIndex.findLastIndex(isLargeNumberlastindex));
 /*The Array.from() static method creates a new, shallow-copied Array instance from an iterable or array-like object.*/
 console.log(Array.from('foo'));
 console.log(Array.from([1, 2, 3], (x) => x + x));
+/*The Array.fromAsync() static method creates a new, shallow-copied Array instance from an async iterable, iterable, or array-like object.*/
 /*The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present*/
 const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 
@@ -159,3 +193,76 @@ console.log(Array.isArray([1, 3, 5])); // Expected output: true
 console.log(Array.isArray('[]')); // Expected output: false
 console.log(Array.isArray(new Array(5))); // Expected output: true
 console.log(Array.isArray(new Int16Array([15, 33]))); // Expected output: false
+
+/*The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+ */
+const arrayinclude = [1, 2, 3];
+console.log(arrayinclude.includes(2)); // Expected output: true
+console.log(arrayinclude.includes('cat')); // Expected output: false
+
+/*The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.*/
+const beastsindexOf = ['ant', 'bison', 'camel', 'duck', 'bison'];
+console.log(beastsindexOf.indexOf('bison')); // Expected output: 1
+// Start from index 2
+console.log(beastsindexOf.indexOf('bison', 2)); // Expected output: 4
+console.log(beastsindexOf.indexOf('giraffe')); // Expected output: -1
+
+/*The keys() method returns a new array iterator object that contains the keys for each index in the array.*/
+const arraykey = ['a', 'b', 'c'];
+const iterator = arraykey.keys();
+
+for (const key of iterator) {
+  console.log(' arraykey : ' + key);
+}
+/*The pop() method removes the last element from an array and returns that element. This method changes the length of the array.*/
+const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+console.log(plants.pop()); // Expected output: "tomato"
+console.log(plants); // Expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+plants.pop();
+console.log(plants); // Expected output: Array ["broccoli", "cauliflower", "cabbage"]
+
+/*The toLocaleString() method returns a string representing the elements of the array. The elements are converted to Strings using their toLocaleString methods and these Strings are separated by a locale-specific String (such as a comma ",").*/
+const arraytoLocal = [1, 'a', new Date('21 Dec 1997 14:12:00 UTC')];
+const localeString = arraytoLocal.toLocaleString('en', { timeZone: 'UTC' });
+console.log(localeString);
+
+/*The toReversed() method of an Array instance is the copying counterpart of the reverse() method. It returns a new array with the elements in reversed order.*/
+const itemstoreversed = [1, 2, 3];
+console.log(itemstoreversed); // [1, 2, 3]
+//const reversedItems1 = itemstoreversed.toReversed();
+console.log(); // [3, 2, 1]
+
+/*The toSorted() method of an Array instance is the copying version of the sort() method. It returns a new array with the elements sorted in ascending order.*/
+const monthssort = ['Mar', 'Jan', 'Feb', 'Dec'];
+//const sortedMonths = monthssort.toSorted();
+//console.log(sortedMonths); // ['Dec', 'Feb', 'Jan', 'Mar']
+console.log(monthssort); // ['Mar', 'Jan', 'Feb', 'Dec']
+
+/*The toSpliced() method of an Array instance is the copying version of the splice() method. It returns a new array with some elements removed and/or replaced at a given index.
+toSpliced(start)
+toSpliced(start, deleteCount)
+toSpliced(start, deleteCount, item1)
+toSpliced(start, deleteCount, item1, item2, itemN)
+
+*/
+/*The toString() method returns a string representing the specified array and its elements.*/
+const arraytostring = [1, 2, 'a', '1a'];
+console.log(arraytostring.toString());
+
+/*The unshift() method adds the specified elements to the beginning of an array and returns the new length of the array.*/
+const arrayunshift = [1, 2, 3];
+console.log(arrayunshift.unshift(4, 5)); // Expected output: 5
+console.log(arrayunshift); // Expected output: Array [4, 5, 1, 2, 3]
+
+/*The values() method returns a new array iterator object that iterates the value of each item in the array.*/
+const arrayvalues = ['a', 'b', 'c'];
+const iteratorvalues = arrayvalues.values();
+for (const value of iteratorvalues) {
+  console.log(value);
+}
+
+/*The with() method of an Array instance is the copying version of using the bracket notation to change the value of a given index. It returns a new array with the element at the given index replaced with the given value. array.with(index, value)
+ */
+const arr = [1, 2, 3, 4, 5];
+//console.log(arr.with(2, 6)); // [1, 2, 6, 4, 5]
+console.log(arr); // [1, 2, 3, 4, 5]
